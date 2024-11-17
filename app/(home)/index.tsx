@@ -1,17 +1,18 @@
 import { Link ,router} from 'expo-router';
 import * as React from 'react';
-import { Text, View ,TouchableOpacity} from 'react-native';
+import { Text, View ,TouchableOpacity, SafeAreaView,StatusBar} from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 justify-center items-center bg-gray-900">
-    <Text className="text-white text-xl mb-4">Home</Text>
-    <TouchableOpacity
-      className="px-4 py-2 bg-orange-500 rounded"
-      onPress={() => router.push("/cart")}
-    >
-      <Text className="text-white">Go to Cart</Text>
-    </TouchableOpacity>
-  </View>
+   <SafeAreaView className='bg-black'>
+    <StatusBar barStyle="dark-content"/>
+    <View className="flex-1 space-x-2 px-4 pb-2 items-center">
+      {/* <View className='flex-row flex-1 item-center p-3  border border-gray-3'> */}
+        <Text className='text-white text-lg font-semibold'>Home</Text>
+
+      {/* </View> */}
+    </View>
+
+   </SafeAreaView>
   );
 }
