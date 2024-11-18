@@ -1,11 +1,13 @@
 import { Stack } from "expo-router";
 import * as Icon from "react-native-feather";
+import BlurTabBarBackground from '../../components/ui/TabBarBackground.ios';
 
 export default function MoreLayout() {
   return (
     <Stack
       screenOptions={{
         headerShown: true,
+        
       }}
     >
       <Stack.Screen
@@ -20,39 +22,46 @@ export default function MoreLayout() {
         name="orderHistory"
         options={{
           title: "PAST ORDERS",
-          headerStyle: {
-            backgroundColor: "#171717",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          presentation: "modal", // Modal-like presentation
+            headerShown: false, // Explicitly hide header for this screen
+          // headerStyle: {
+          //   backgroundColor: "#171717",
+          // },
+          // headerTintColor: "white",
+          // headerTitleStyle: {
+          //   fontWeight: "bold",
+          // },
         }}
       />
       <Stack.Screen
         name="Terms_conditions"
         options={{
           title: "TERMS AND CONDITIONS",
-          headerStyle: {
-            backgroundColor: "#171717",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          presentation: "modal", // Modal-like presentation
+          headerShown: false, // Explicitly hide header for this screen
+          // headerStyle: {
+          //   backgroundColor: "#171717",
+          // },
+          // headerTintColor: "white",
+          // headerTitleStyle: {
+          //   fontWeight: "bold",
+          // },
         }}
       />
       <Stack.Screen
         name="Privacy"
         options={{
           title: "PRIVACY",
-          headerStyle: {
-            backgroundColor: "#171717",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          presentation: "modal", // Modal-like presentation
+          headerShown: false, // Explicitly hide header for this screen
+          // headerStyle: {
+          //   backgroundColor: "#171717",
+          // },
+          // headerTintColor: "white",
+          // headerTitleStyle: {
+          //   fontWeight: "bold",
+          // },
+         
         }}
       />
       <Stack.Screen
@@ -98,26 +107,30 @@ export default function MoreLayout() {
         name="contactus"
         options={{
           title: "CONTACT US",
-          headerStyle: {
-            backgroundColor: "#171717",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          presentation: "modal", // Modal-like presentation
+            headerShown: false, // Explicitly hide header for this screen
+          // headerStyle: {
+          //   backgroundColor: "#171717",
+          // },
+          // headerTintColor: "white",
+          // headerTitleStyle: {
+          //   fontWeight: "bold",
+          // },
         }}
       />
       <Stack.Screen
         name="aboutus"
         options={{
           title: "ABOUT US",
-          headerStyle: {
-            backgroundColor: "#171717",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          presentation: "modal", // Modal-like presentation
+          headerShown: false, // Explicitly hide header for this screen
+          // headerStyle: {
+          //   backgroundColor: "#171717",
+          // },
+          // headerTintColor: "white",
+          // headerTitleStyle: {
+          //   fontWeight: "bold",
+          // },
         }}
       />
     </Stack>

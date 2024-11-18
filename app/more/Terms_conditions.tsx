@@ -4,8 +4,8 @@ import * as Icon from "react-native-feather";
 
 export default function Terms_conditions() {
   return (
-      <View className="bg-[#171717] h-screen ">
-        <ScrollView>
+      <View className="bg-[#171717] flex-1">
+        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}>
           <View>
             <Text className="text-[#F4BA45] pt-3 text-xl font-bold text-center mt-12 ">
               PLEASE READ THE FOLLOWING NOTICES AND TERMS AND CONDITIONS

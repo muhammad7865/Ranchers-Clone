@@ -67,7 +67,7 @@ export default function contactus() {
         </Text>
         <View className="flex flex-row items-center justify-center">
           <TextInput
-            className="border-2  border-[#F4BA45] rounded-lg text-white h-12 w-11/12  "
+            className="border-2  border-[#F4BA45] rounded-lg text-white h-10 w-11/12  "
             placeholder="   Your Message Here"
             keyboardType="default"
           />

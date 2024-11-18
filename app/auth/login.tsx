@@ -1,51 +1,99 @@
-import { View, Text, TouchableOpacity, Alert,Image,TextInput, ScrollView } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+  Alert,
+  ScrollView,
+} from "react-native";
 import { router } from "expo-router";
 
-
 export default function Login() {
-  return(
-    
-    // LOGIN PAGE
-    <View className=' bg-[#171717]'>
-       <Image className='h-[40%] w-full' 
-       source={require('../../assets/images/test2.jpeg')} />
-      <View className='bg-[#171717] rounded-lg -mt-2'>
- 
-       <Text className='color-white text-3xl pb-20 text-center' >
-         LOGIN TO <Text className='color-[#F4BA45]'>
-         RANCHERS
-       </Text>
-       </Text>
-       
-       <Text className='text-white pb-4 pr-6'>     Enter Email</Text>
-        <View className='flex flex-row items-center justify-center'>
-        <TextInput
-          className='border-2 border-[#F4BA45] rounded-lg text-white h-10 w-11/12  '
-          placeholder="   Enter your Email"
-          keyboardType="default"
-        />
-        </View>
-        <Text className='text-white pb-4 pt-10 '>     Enter Password</Text>
-        <View className='flex flex-row items-center justify-center'>
-        <TextInput
-          className='border-2 border-[#F4BA45] rounded-lg text-white h-10 w-11/12  '
-          placeholder="   Enter your Password"
-          keyboardType="default"
-        />
-        </View>
-        <Text className='text-[#F4BA45] text-left pl-64 font-semibold mt-2'>Forget Password?</Text>
-        <Text className='text-white text-center pt-10'>Don't have an account? <Text className='text-[#F4BA45]'>Sign Up</Text></Text>
-        <View className='flex flex-col items-center justify-center h-9  mt-5 mb-5'>
-        <TouchableOpacity 
-        onPress={() => router.push('/auth/signup') }  // replace with navigation
-        className='bg-[#F4BA45] rounded-lg h-10 w-11/12 '>
-          <Text className='text-white font-bold text-lg text-center pt-2 '>SIGN IN</Text>
-        </TouchableOpacity>
-        </View>
-        {/* <Button title='SIGN IN' className='bg-[#F4BA45] text-white'></Button> */}
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-      </View>
-      
-    </View>
+  const validateLogin = () => {
+    if (!email || !password) {
+      Alert.alert("Error", "All fields are mandatory.");
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      Alert.alert("Error", "Please enter a valid email.");
+      return;
+    }
+    Alert.alert("Success", "Login successful!");
+    // Proceed with login logic
+  };
+
+  return (
+    <KeyboardAvoidingView
+      className="flex-1 bg-[#171717]"
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
+        {/* Header Image */}
+        <Image
+          className="h-[40%] w-full"
+          source={require("../../assets/images/test2.jpeg")}
+        />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+
+        {/* Login Section */}
+        <View className="p-4">
+          <Text className="text-white text-3xl text-center mt-10 ">
+            LOGIN TO <Text className="text-[#F4BA45]">RANCHERS</Text>
+          </Text>
+
+          {/* Email Input */}
+          <Text className="text-white mt-10 ">Email</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Enter your Email"
+            placeholderTextColor="#A9A9A9"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+          />
+
+          {/* Password Input */}
+          <Text className="text-white mt-2">Password</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-2"
+            placeholder="Enter your Password"
+            placeholderTextColor="#A9A9A9"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+
+          {/* Forget Password */}
+          <Text className="text-[#F4BA45] text-right font-semibold mb-5">
+            Forget Password?
+          </Text>
+
+          {/* Sign In Button */}
+          <TouchableOpacity
+            onPress={validateLogin}
+            className="bg-[#F4BA45] rounded-lg h-12 flex items-center justify-center mb-5"
+          >
+            <Text className="text-white font-bold text-lg">LOG IN</Text>
+          </TouchableOpacity>
+
+          {/* Sign Up Link */}
+          <Text className="text-white text-center">
+            Don't have an account?{" "}
+            <Text
+              className="text-[#F4BA45] font-bold"
+              onPress={() => router.push("/auth/signup")}
+            >
+              Sign Up
+            </Text>
+          </Text>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }

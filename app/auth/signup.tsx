@@ -1,96 +1,131 @@
-import { View, Text, TouchableOpacity, Alert ,ScrollView,TextInput,Image} from "react-native";
-import { useRouter ,Link} from "expo-router";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+  Alert,
+} from "react-native";
+import { useRouter } from "expo-router";
 
-
-export default function Login() {
+export default function Signup() {
   const router = useRouter();
-    return (
-      <View className="bg-[#171717] ">
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const validateSignup = () => {
+    if (!firstName || !lastName || !email || !phone || !password || !confirmPassword) {
+      Alert.alert("Error", "All fields are mandatory.");
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      Alert.alert("Error", "Please enter a valid email.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      Alert.alert("Error", "Passwords do not match.");
+      return;
+    }
+    Alert.alert("Success", "Signup successful!");
+    // Proceed with signup logic
+  };
+
+  return (
+    <KeyboardAvoidingView
+      className="flex-1 bg-[#171717]"
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+    >
         <Image
-          className=" w-full "
+          className="h-[40%] w-full"
           source={require("../../assets/images/test4.jpeg")}
         />
-        <View className="bg-[#171717] rounded-3xl -mt-2">
-        <ScrollView>
-    
-              <Text className="color-white text-3xl pt-6 pb-20 text-center">
-            SIGNUP TO <Text className="color-[#F4BA45]">RANCHERS</Text>
+          <ScrollView>
+        <View className="p-4">
+          <Text className="text-white text-3xl text-center mb-8">
+            SIGNUP TO <Text className="text-[#F4BA45]">RANCHERS</Text>
           </Text>
-  
-            <Text className='text-white pb-2 pt-2 pr-6 text-xl font-semibold'>    First Name</Text>
-          <View className='flex flex-row items-center justify-center text-white'>
-          <TextInput
-            className='border-2 border-[#F4BA45] rounded-lg h-12 w-11/12 color-white '
-            placeholder="   Enter your First Name"
-            keyboardType="default"
-          />
-          </View>
-  
-  
-          <Text className='text-white pb-2 pt-2 pr-6 text-xl font-semibold'>     Last Name</Text>
-          <View className='flex flex-row items-center justify-center'>
-          <TextInput
-            className='border-2 border-[#F4BA45] rounded-lg text-white h-12 w-11/12  '
-            placeholder="   Enter your Last Name"
-            keyboardType="default"
-          />
-          </View>
-  
-  
-  
-          <Text className='text-white pb-2 pt-2 pr-6 text-xl font-semibold'>     Email</Text>
-          <View className='flex flex-row items-center justify-center'>
-          <TextInput
-            className='border-2 border-[#F4BA45] rounded-lg text-white h-12 w-11/12  '
-            placeholder="   Enter your Email"
-            keyboardType="default"
-          />
-          </View>
-  
-  
-  
-          <Text className='text-white pb-2 pt-2 pr-6 text-xl font-semibold'>     Phone</Text>
-          <View className='flex flex-row items-center justify-center'>
-          <TextInput
-            className='border-2 border-[#F4BA45] rounded-lg text-white h-12 w-11/12  '
-            placeholder="   Enter your Phone Number"
-            keyboardType="default"
-          />
-          </View>
-  
-  
-  
-          <Text className='text-white pb-2 pt-2 pr-6 text-xl font-semibold'>     Password</Text>
-          <View className='flex flex-row items-center justify-center'>
-          <TextInput
-            className='border-2 border-[#F4BA45] rounded-lg text-white h-12 w-11/12  '
-            placeholder="   Enter your Password"
-            keyboardType="default"
-          />
-          </View>
-  
-  
-  
-          <Text className='text-white pb-2 pt-2 pr-6 text-xl font-semibold'>     Confirm Password</Text>
-          <View className='flex flex-row items-center justify-center'>
-          <TextInput
-            className='border-2 border-[#F4BA45] rounded-lg text-white h-12 w-11/12  '
-            placeholder="   Enter your Password"
-            keyboardType="default"
-          />
-          </View>
-  
-          <View className='flex flex-col items-center justify-center h-9  mt-10 mb-5'>
-          <TouchableOpacity className='bg-[#F4BA45] rounded-3xl h-14 w-11/12 '>
-            <Text className='text-white font-extrabold text-3xl text-center pt-3 '>CONTINUE</Text>
-          </TouchableOpacity>
-          </View>
-            </ScrollView>
-  
-  
 
+          {/* First Name */}
+          <Text className="text-white mb-2">First Name</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Enter your First Name"
+            placeholderTextColor="#A9A9A9"
+            value={firstName}
+            onChangeText={setFirstName}
+          />
+
+          {/* Last Name */}
+          <Text className="text-white mb-2">Last Name</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Enter your Last Name"
+            placeholderTextColor="#A9A9A9"
+            value={lastName}
+            onChangeText={setLastName}
+          />
+
+          {/* Email */}
+          <Text className="text-white mb-2">Email</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Enter your Email"
+            placeholderTextColor="#A9A9A9"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+          />
+
+          {/* Phone */}
+          <Text className="text-white mb-2">Phone</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Enter your Phone Number"
+            placeholderTextColor="#A9A9A9"
+            value={phone}
+            onChangeText={setPhone}
+            keyboardType="phone-pad"
+          />
+
+          {/* Password */}
+          <Text className="text-white mb-2">Password</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Enter your Password"
+            placeholderTextColor="#A9A9A9"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+
+          {/* Confirm Password */}
+          <Text className="text-white mb-2">Confirm Password</Text>
+          <TextInput
+            className="border-2 border-[#F4BA45] rounded-lg text-white h-12 px-3 mb-5"
+            placeholder="Confirm your Password"
+            placeholderTextColor="#A9A9A9"
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            secureTextEntry
+          />
+
+          {/* Continue Button */}
+          <TouchableOpacity
+            onPress={validateSignup}
+            className="bg-[#F4BA45] rounded-lg h-12 flex items-center justify-center"
+          >
+            <Text className="text-white font-bold text-lg">CONTINUE</Text>
+          </TouchableOpacity>
         </View>
-        
-      </View>
-    );
+      </ScrollView>
+    </KeyboardAvoidingView>
+  );
 }
