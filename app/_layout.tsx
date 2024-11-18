@@ -34,7 +34,7 @@ export default function RootLayout() {
           <BlurView
             tint="dark"
             intensity={30}
-            className="absolute inset-0 rounded-[40px] overflow-hidden"
+            className="absolute inset-0 rounded-[40px] overflow-hidden ease-linear"
           />
         ),
         headerShown: false,

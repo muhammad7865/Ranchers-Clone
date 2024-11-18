@@ -6,7 +6,7 @@ export default function Login() {
   return(
     
     // LOGIN PAGE
-    <View className=' h-[90%] w-full '>
+    <View className=' bg-[#171717]'>
        <Image className='h-[40%] w-full' 
        source={require('../../assets/images/test2.jpeg')} />
       <View className='bg-[#171717] rounded-lg -mt-2'>

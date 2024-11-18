@@ -1,11 +1,13 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
+import React ,{useState} from "react";
 import { router } from "expo-router";
 import * as Icon from "react-native-feather";
 import { Link, Stack } from "expo-router";
 import { Route } from "expo-router/build/Route";
 
 export default function More() {
+  const[loggedin,setloggedin]=useState(false)
+
   return (
     <View className="bg-[#171717] h-screen">
       <View className="">
@@ -16,8 +18,13 @@ export default function More() {
         {/* Orders history */}
 
         <TouchableOpacity
-          onPress={() => {
+         onPress={() => {
+          if(loggedin){
             router.push("/more/orderHistory");
+          }
+          else{
+              Alert.alert('Login First')
+          }
           }}
         >
           <View className="flex flex-row justify-between w-full pt-14">
@@ -40,7 +47,12 @@ export default function More() {
 
         <TouchableOpacity
           onPress={() => {
-            router.push("/more/profile");
+            if(loggedin){
+              router.push("/more/profile");
+            }
+            else{
+                Alert.alert('Login First')
+            }
           }}
         >
           <View className="flex flex-row justify-between w-full pt-4">
@@ -80,7 +92,12 @@ export default function More() {
 
         <TouchableOpacity
           onPress={() => {
-            router.push("/more/feedback");
+            if(loggedin){
+              router.push("/more/feedback");
+            }
+            else{
+                Alert.alert('Login First')
+            }
           }}
         >
           <View className="flex flex-row justify-between w-full pt-4">
@@ -100,7 +117,12 @@ export default function More() {
 
         <TouchableOpacity
           onPress={() => {
-            router.push("/more/changepassword");
+            if(loggedin){
+              router.push("/more/changepassword");
+            }
+            else{
+                Alert.alert('Login First')
+            }
           }}
         >
           <View className="flex flex-row justify-between w-full pt-4">

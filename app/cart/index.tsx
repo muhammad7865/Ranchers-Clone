@@ -6,14 +6,12 @@ export default function CartScreen() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 justify-center items-center bg-gray-900">
-      <Text className="text-white text-xl mb-4">Your Cart is Empty!</Text>
-      <TouchableOpacity
-        className="px-4 py-2 bg-orange-500 rounded"
-        onPress={() => router.push("/orders")}
-      >
-        <Text className="text-white">Go to Orders</Text>
-      </TouchableOpacity>
+    <View className="bg-[#171717] h-screen " >
+    <View className="mt-20 flex flex-row items-center pl-" >
+      <Text className="color-white text-4xl font-extrabold pl-2" >
+        YOUR CART
+      </Text>
+    </View>
     </View>
   );
 }

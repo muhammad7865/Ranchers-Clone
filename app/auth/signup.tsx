@@ -5,13 +5,13 @@ import { useRouter ,Link} from "expo-router";
 export default function Login() {
   const router = useRouter();
     return (
-        <ScrollView>
       <View className="bg-[#171717] ">
         <Image
           className=" w-full "
           source={require("../../assets/images/test4.jpeg")}
         />
         <View className="bg-[#171717] rounded-3xl -mt-2">
+        <ScrollView>
     
               <Text className="color-white text-3xl pt-6 pb-20 text-center">
             SIGNUP TO <Text className="color-[#F4BA45]">RANCHERS</Text>
@@ -85,12 +85,12 @@ export default function Login() {
             <Text className='text-white font-extrabold text-3xl text-center pt-3 '>CONTINUE</Text>
           </TouchableOpacity>
           </View>
+            </ScrollView>
   
   
 
         </View>
         
       </View>
-            </ScrollView>
     );
 }

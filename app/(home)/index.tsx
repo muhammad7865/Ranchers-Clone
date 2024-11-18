@@ -4,15 +4,14 @@ import { Text, View ,TouchableOpacity, SafeAreaView,StatusBar} from 'react-nativ
 
 export default function HomeScreen() {
   return (
-   <SafeAreaView className='bg-black'>
-    <StatusBar barStyle="dark-content"/>
-    <View className="flex-1 space-x-2 px-4 pb-2 items-center">
-      {/* <View className='flex-row flex-1 item-center p-3  border border-gray-3'> */}
-        <Text className='text-white text-lg font-semibold'>Home</Text>
 
-      {/* </View> */}
+    <View className="bg-[#171717] h-screen " >
+    <View className="mt-9 flex flex-row items-center pl-" >
+      <Text className="color-white text-4xl font-extrabold pl-2" >
+        MENU
+      </Text>
     </View>
-
-   </SafeAreaView>
+    </View>
+   
   );
 }
