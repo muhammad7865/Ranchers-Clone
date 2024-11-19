@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity,Image } from "react-native";
 import { useRouter } from "expo-router";
+import data from '@/categories.json'
 
 export default function CartScreen() {
   const router = useRouter();
@@ -8,8 +9,12 @@ export default function CartScreen() {
   return (
     <View className="bg-[#171717] h-screen " >
     <View className="mt-20 flex flex-row items-center pl-" >
+      <Image
+      source={{uri:"https://reactnative.dev/img/tiny_logo.png"}}
+      style={{height: 49,width: 49}}
+      />
       <Text className="color-white text-4xl font-extrabold pl-2" >
-        ORDERS
+        YOUR CART 
       </Text>
     </View>
     </View>

@@ -45,7 +45,7 @@ export default function Signup() {
     >
         <Image
           className="h-[40%] w-full"
-          source={require("../../assets/images/test4.jpeg")}
+          source={require("../../assets/images/test5.jpeg")}
         />
           <ScrollView>
         <View className="p-4">
