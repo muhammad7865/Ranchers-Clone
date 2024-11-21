@@ -5,12 +5,11 @@ import CategoryTab from "./CategoryTab";
 import MenuItem from "./ItemMenu";
 import ItemModal from "./ItemModal";
 
-// Main Category Component
 export default function Category() {
   const [selectedCategory, setSelectedCategory] = useState(
     menuData.products[0].category
   );
-  const [menuItems, setMenuItems] = useState(menuData.products[0].items);
+  const [menuItems, setMenuItems] = useState<any[]>(menuData.products[0].items);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -42,7 +41,6 @@ export default function Category() {
           className="py-3"
         />
       </View>
-
       <FlatList
         data={menuItems}
         renderItem={({ item }) => (
@@ -50,10 +48,9 @@ export default function Category() {
         )}
         keyExtractor={(item) => item.name}
         showsVerticalScrollIndicator={false}
-        className="flex-1"
+        numColumns={2}
         contentContainerStyle={{ paddingBottom: 80 }}
       />
-
       <ItemModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}

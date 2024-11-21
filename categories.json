@@ -1,19 +1,48 @@
 {
   "products": [
     {
+      "category": "Deals",
+      "items": [
+        {
+          "name": "GRUB ON THE GO",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2Fgogo.webp&w=1920&q=75",
+          "price": 999,
+          "description": "4 Krunch Burgers , 1.5 Ltr. Drink"
+        },
+        {
+          "name": "ANY TWO DEAL",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FANY-2-DEAL.webp&w=1920&q=75",
+          "price": 1399,
+          "description": " ANY 2 BURGERS AND ANY 2 Drinks"
+        },
+        {
+          "name": "TWO FOR YOU",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2Ftwo-for-you.webp&w=1920&q=75",
+          "price": 1999,
+          "description": "2 Large Pan Pizzas, 1.5 Ltr. Drink"
+        },
+        {
+          "name": "FAMILY FEAST",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2Ftrio-fest.webp&w=1920&q=75",
+          "price": 2499,
+          "description": "Large Pizza + 4 Pieces Chicken + 2 Regular Fries + 2 Drinks"
+        }
+      ]
+    },
+    {
       "category": "Chicken Burger",
       "items": [
         {
-          "name": "MIGHTY RODEO CHICKEN",
-          "image": "./Mighty-Rodeo-Chicken-1.webp",
+          "name": "MIGHTY RODEO ",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FMighty%2BRodeo%2BChicken.webp&w=1920&q=75",
           "price": 899,
           "comboPrice": 1049,
           "description": "Double patty chicken burger with cheese, lettuce, and our special sauce",
           "isCombo": true
         },
         {
-          "name": "RANCHER SPECIAL",
-          "image": "https://www.taste.com.au/images/recipes/ranch-special-chicken-burger.jpg",
+          "name": "RANCHERS SPECIAL",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FFajita.webp&w=1920&q=75",
           "price": 749,
           "comboPrice": 899,
           "description": "Crispy chicken fillet with fresh veggies and ranch sauce",
@@ -21,15 +50,15 @@
         },
         {
           "name": "ZINGER SUPREME",
-          "image": "https://kfcbd.com/images/menu/zinger-burger.png",
-          "price": 649,
-          "comboPrice": 799,
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FCowboy.webp&w=1920&q=75",
+          "price": 599,
+          "comboPrice": 749,
           "description": "Spicy zinger fillet with signature mayo and lettuce",
           "isCombo": true
         },
         {
           "name": "CHICKEN CLASSIC",
-          "image": "https://cdn.cdnparenting.com/articles/2019/06/21231258/Chicken-Burger-Recipe.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FBronco%2BChicken%2BBurger.webp&w=1920&q=75",
           "price": 599,
           "comboPrice": 749,
           "description": "Classic chicken patty with fresh vegetables",
@@ -42,7 +71,7 @@
       "items": [
         {
           "name": "MIGHTY RODEO BEEF",
-          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FChee%2BHaww%2BBeef.webp&w=1920&q=75 ",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FRodeo_Beef.webp&w=1920&q=75",
           "price": 899,
           "comboPrice": 1049,
           "description": "Indulge in our Mozzarella Inferno Burger, featuring two grilled beef patties",
@@ -50,7 +79,7 @@
         },
         {
           "name": "BUTCHER",
-          "image": "https://www.burgerville.com/wp-content/uploads/2020/01/double-beef-burger.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FButcher.webp&w=1920&q=75",
           "price": 799,
           "comboPrice": 949,
           "description": "Double Patty Beef Burger: 2 Beef Patties, Double Cheese Slices",
@@ -58,7 +87,7 @@
         },
         {
           "name": "BEEF CHAMPION",
-          "image": "https://cdn.kitchenstories.io/uploadedImages/beef-champion-burger.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FBeef%2BSteak.webp&w=1920&q=75",
           "price": 749,
           "comboPrice": 899,
           "description": "Premium beef patty with special sauce and fresh veggies",
@@ -71,7 +100,7 @@
       "items": [
         {
           "name": "CHICKEN TIKKA PAN",
-          "image": "https://www.dominos.co.in//files/items/Chicken-Tikka.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FChicken%2BTikka%2BPan.webp&w=1920&q=75",
           "price": 549,
           "prices": {
             "small": 549,
@@ -82,7 +111,7 @@
         },
         {
           "name": "CHICKEN FAJITA PAN",
-          "image": "https://www.pizzahut.com.pk/media/pizza/fajita.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FChicken%2BFajita%2BPan.webp&w=1920&q=75",
           "price": 549,
           "prices": {
             "small": 549,
@@ -92,8 +121,8 @@
           "description": "Ignite your taste buds with our spicy pizza, featuring fajita-flavored chicken"
         },
         {
-          "name": "RANCH SPECIAL",
-          "image": "https://images.pizzatopping-special.jpg",
+          "name": "RANCHERS SPECIAL",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FCrown%2BPizza.webp&w=1920&q=75",
           "price": 1499,
           "prices": {
             "medium": 1499,
@@ -109,7 +138,7 @@
       "items": [
         {
           "name": "CHEEKY FRIES",
-          "image": "https://assets.kfc.com/fries.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FCheeky%2BFries.webp&w=1920&q=75",
           "price":499,
           "prices": {
             "small": 499,
@@ -120,14 +149,14 @@
        
         {
           "name": "PLAIN FRIES",
-          "image": "https://www.mcdonalds.com/images/menu/fries.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FPlain-Fries.webp&w=1920&q=75",
           "price": 199,
           "bucketPrice": 299,
           "description": "Normal Fries"
         },
         {
           "name": "FRIZZA",
-          "image": "https://www.foodiesquad.com/images/frizza-loaded-fries.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FFrizza.webp&w=1920&q=75",
           "price":549,
           "prices": {
             "small": 549,
@@ -138,7 +167,7 @@
         },
         {
           "name": "RANCHEESE",
-          "image": "https://www.cheeseplatter.com/rancheese-fries.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FRancheese.webp&w=1920&q=75",
           "price": 699,
           "description": "Cheese-loaded fries with ranch sauce"
         }
@@ -149,25 +178,25 @@
       "items": [
         {
           "name": "MESSY WINGS",
-          "image": "https://www.bwwings.com/images/messy-chicken-wings.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FMessy%2BWings.webp&w=1920&q=75",
           "price": 499,
           "description": "Buffalo: sweet n' spicy chicken wings"
         },
         {
           "name": "WHACKERRR",
-          "image": "https://www.subway.com/images/wrap.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FWhackerrr.webp&w=1920&q=75",
           "price": 399,
           "description": "Grilled chicken wrap, including fresh veggies"
         },
         {
           "name": "KIDS MEAL",
-          "image": "https://kfcbd.com/images/kids-meal.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FKids%2BMeal.webp&w=1920&q=75",
           "price": 499,
           "description": "Soft Chicken patty burger only in mayo, with fries & Milo drink"
         },
         {
           "name": "CHICKEN PIECES",
-          "image": "https://static.kfc.co.in/images/3-pieces.jpg",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FChicken%2BPieces.webp&w=1920&q=75",
           "price": 225,
           "prices": {
             "1pc": 225,
@@ -181,41 +210,49 @@
       "category": "Drinks",
       "items": [
         {
-          "name": "RANCHERS COLA",
-          "image": "https://www.coca-cola.com/brands/ranch-cola.jpg",
+          "name": "Pespi",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FPepsi.webp&w=640&q=75",
           "price": 90,
           "description": "Regular soft drink"
         },
         {
-          "name": "MILO",
-          "image": "https://www.nestle.com.pk/images/milo-drink.jpg",
-          "price": 120,
-          "description": "Chocolate malt beverage"
-        }
-      ]
-    },
-    {
-      "category": "Deals",
-      "items": [
-        {
-          "name": "BASHIN' DEAL",
-          "image": "https://www.kfc.com/images/bashin-deal.jpg",
-          "price": 999,
-          "description": "2 Krunch Burgers + Regular Fries + Regular Drink"
+          "name": "7up",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2F7up.webp&w=640&q=75",
+          "price": 90,
+          "description": "Regular soft drink"
         },
         {
-          "name": "TWO FOR ONE",
-          "image": "https://www.pizzahut.com/images/2-for-1.jpg",
-          "price": 1699,
-          "description": "2 Large Pan Pizzas"
+          "name": "Dew",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FDew.webp&w=640&q=75",
+          "price": 90,
+          "description": "Regular soft drink"
         },
         {
-          "name": "FAMILY FEAST",
-          "image": "https://www.dominos.com/images/family-feast.jpg",
-          "price": 2499,
-          "description": "Large Pizza + 4 Pieces Chicken + 2 Regular Fries + 2 Drinks"
-        }
+          "name": "Mirinda",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2FMirinda.webp&w=640&q=75",
+          "price": 90,
+          "description": "Regular soft drink"
+        },
+        {
+          "name": "Mayo Dip",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2Fmayo%2Bdip.webp&w=640&q=75",
+          "price": 49,
+          "description": "Regular soft drink"
+        },
+        {
+          "name": "Pink Sauce Dip",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2Fpink%2Bsauce%2Bdip.webp&w=640&q=75",
+          "price": 49,
+          "description": "Regular soft drink"
+        },
+        {
+          "name": "Garlic Mayo Dip",
+          "image": "https://rancherscafe.com/_next/image?url=https%3A%2F%2Franchers.s3.ap-southeast-1.amazonaws.com%2Fproducts%2Fsku%2Fimages%2Fgarlic%2Bmayo%2Bdip.webp&w=640&q=75",
+          "price": 49,
+          "description": "Regular soft drink"
+        }       
       ]
     }
+   
   ]
 }

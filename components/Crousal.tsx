@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "react-native-feather"
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const Carousel = ({ children: slides, autoSlide = true, autoSlideInterval = 3000 }) => {
+const Carousel = ({ children: slides, autoSlide = true, autoSlideInterval = 3000 }:any) => {
     const [curr, setCurr] = useState(0)
     const scrollViewRef = useRef(null)
 
@@ -72,7 +72,7 @@ const Carousel = ({ children: slides, autoSlide = true, autoSlideInterval = 3000
             
             <View className="absolute bottom-2 right-0 left-0 z-10">
                 <View className="flex-row items-center justify-center gap-1">
-                    {slides.map((_, i) => (
+                    {slides.map((_: any, i: React.Key | null | undefined) => (
                         <View
                             key={i}
                             className={`w-1.5 h-1.5 rounded-full bg-white ${

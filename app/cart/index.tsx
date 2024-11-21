@@ -9,10 +9,6 @@ export default function CartScreen() {
   return (
     <View className="bg-[#171717] h-screen " >
     <View className="mt-20 flex flex-row items-center pl-" >
-      <Image
-      source={{uri:"https://reactnative.dev/img/tiny_logo.png"}}
-      style={{height: 49,width: 49}}
-      />
       <Text className="color-white text-4xl font-extrabold pl-2" >
         YOUR CART 
       </Text>

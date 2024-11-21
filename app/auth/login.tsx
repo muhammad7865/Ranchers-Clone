@@ -36,8 +36,8 @@ export default function Login() {
     >
         {/* Header Image */}
         <Image
-          className="h-[40%] w-full"
-          source={require("../../assets/images/test2.jpeg")}
+          className="h-[35%] "
+          source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1SJueouF-GEdDFWjK9dJr5xJ_upHU7P6YHw&s"}}
         />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
 

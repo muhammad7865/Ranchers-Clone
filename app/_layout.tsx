@@ -10,6 +10,7 @@ export default function RootLayout() {
   return (
     <Tabs
       screenOptions={{
+        tabBarShowLabel:false,
         tabBarStyle: {
           position: 'absolute',
           bottom: 20,
@@ -58,6 +59,7 @@ export default function RootLayout() {
         name="auth"
         options={{
           tabBarLabel: "Login",
+          
           tabBarIcon: ({ color, focused }) => (
             <View className={`p-2 ${focused ? 'bg-orange-500/20 rounded-full' : ''}`}>
               <Icon.LogIn width={24} height={24} stroke={color} strokeWidth={focused ? 2.5 : 2} />
