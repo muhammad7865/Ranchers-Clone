@@ -1,9 +1,8 @@
-import { Tabs } from "expo-router";
-import * as Icon from "react-native-feather";
-import '../global.css'
 import { BlurView } from "expo-blur";
+import { Tabs } from "expo-router";
 import { View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import * as Icon from "react-native-feather";
+import '../global.css';
 
 
 export default function RootLayout() {
