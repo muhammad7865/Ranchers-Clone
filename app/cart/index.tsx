@@ -8,7 +8,7 @@ export default function CartScreen() {
 
   return (
     <View className="bg-[#171717] h-screen " >
-    <View className="mt-20 flex flex-row items-center pl-" >
+    <View className="mt-20 flex flex-row items-center pl-" >  
       <Text className="color-white text-4xl font-extrabold pl-2" >
         YOUR CART 
       </Text>

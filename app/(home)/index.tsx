@@ -44,7 +44,7 @@ export default function HomeScreen() {
           <Icon.LogIn height={30} width={30} stroke="#F4BA45" />
         </TouchableOpacity>
       </View>
-
+      
       {/* Banner */}
       <View className="bg-[#F4BA45] py-2 mb-3">
         <Text className="text-center text-black font-bold">

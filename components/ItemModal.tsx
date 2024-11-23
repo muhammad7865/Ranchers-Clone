@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import {
-    Modal,
-    ScrollView,
-    Text,
-    TouchableOpacity,
-    View
+  Modal,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  FlatList,
 } from "react-native";
 import { Minus, Plus } from "react-native-feather";
+import CustomAccordion from './CustomAccrodion';
+import extras from "@/categories.json";
+
 const ItemModal = ({ visible, onClose, item }: any) => {
   const [quantity, setQuantity] = useState(1);
+
+  const [addOns, setAddOns] = useState<any[]>(extras.products[6].items);
 
   return (
     <Modal
@@ -19,9 +25,10 @@ const ItemModal = ({ visible, onClose, item }: any) => {
     >
       <View className="flex-1 bg-black/80">
         <View className="flex-1 mt-20 bg-[#171717] rounded-t-3xl">
-          <View className="bg-[#F4BA45] ">
-            <Text></Text>
+          <View className="border border-b-0 border-t-2 border-white">
+            <Text>msdj</Text>
           </View>
+
           <ScrollView className="flex-1">
             {/* Header */}
             <View className="p-5">
@@ -39,7 +46,10 @@ const ItemModal = ({ visible, onClose, item }: any) => {
             </View>
 
             {/* Options Sections */}
-
+            <View>
+              <CustomAccordion extra={addOns} currentItem={item}/>
+              
+            </View>
             {/* Add Ons Section */}
           </ScrollView>
 
@@ -52,6 +62,7 @@ const ItemModal = ({ visible, onClose, item }: any) => {
               >
                 <Minus stroke="black" width="35" />
               </TouchableOpacity>
+
               <Text className="mx-4 text-white text-xl">{quantity}</Text>
               <TouchableOpacity
                 onPress={() => setQuantity((prev) => prev + 1)}
