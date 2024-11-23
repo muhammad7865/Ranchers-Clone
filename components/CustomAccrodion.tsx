@@ -4,6 +4,7 @@ import { RadioButton } from "react-native-paper";
 import { ChevronUp, ChevronDown } from "react-native-feather";
 import extras from "@/categories.json";
 import FindAndPrint from "./FindAndPrint";
+import { red100 } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 
 const CustomAccordion = ({ currentItem }: any) => {
   const [isAddonOpen, setIsAddonOpen] = useState(false);
@@ -36,11 +37,12 @@ const CustomAccordion = ({ currentItem }: any) => {
 
       <View>
         <View
-          className="border-2 flex flex-row justify-between p-2"
-          style={{ borderColor: "#F4BA45" }}
+          className="border-2 flex flex-row justify-between p-2 rounded-md "
+
+          style={{ borderColor: "#F4BA45" ,marginHorizontal:20 ,borderRadius:10 ,paddingTop:10}}
         >
           <TouchableOpacity>
-            <Text className="text-white font-bold align-center pt-2">
+            <Text className="text-white pt-1 text-xl align-center">
               OPTIONS
             </Text>
           </TouchableOpacity>
@@ -53,8 +55,9 @@ const CustomAccordion = ({ currentItem }: any) => {
           </TouchableOpacity>
         </View>
         {isSelectedOpen && (
-          <View>
-            <FindAndPrint items={currentItem} />
+          
+          <View style={{marginHorizontal:20  }} className="rounded-2xl">
+             <FindAndPrint items={currentItem} />
           </View>
         )}
       </View>
@@ -63,11 +66,11 @@ const CustomAccordion = ({ currentItem }: any) => {
       <View className="mt-4 ">
         <View
           className="border-2 flex flex-row justify-between p-2"
-          style={{ borderColor: "#F4BA45" }}
+          style={{ borderColor: "#F4BA45" ,marginHorizontal:20 ,borderRadius:10 ,paddingTop:10}}
         >
           <TouchableOpacity>
-            <Text className="text-white font-bold align-center pt-2">
-              AddOn
+            <Text className="text-white pb-2 align-center pt-1 text-xl">
+              Add Ons
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleAccordionaddOn}>
@@ -85,6 +88,8 @@ const CustomAccordion = ({ currentItem }: any) => {
               marginTop: 13,
               marginBottom: 19,
               borderColor: "#F4BA45",
+              borderRadius:10,
+              marginHorizontal:20  
             }}
           >
             <FlatList
@@ -99,7 +104,18 @@ const CustomAccordion = ({ currentItem }: any) => {
                 />
 
                   </View>
+
+                  <View   style ={{  
+                    display:"flex" ,
+                    flexDirection:"row",
+                    justifyContent: "space-between",
+                    alignItems: "center", 
+                    width:300,
+                    marginVertical:5
+                     }}>
+
                   <View className="flex flex-row justify-between">
+
                     <Text className="text-white">{item.name}</Text>
                     <Text className="text-white"> {item.price}</Text>
                   </View>
