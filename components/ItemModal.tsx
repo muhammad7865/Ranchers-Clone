@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   Modal,
-  ScrollView,
+  SafeAreaView,
   Text,
   TouchableOpacity,
   View,
@@ -9,12 +9,9 @@ import {
 } from "react-native";
 import { Minus, Plus } from "react-native-feather";
 import CustomAccordion from './CustomAccrodion';
-import extras from "@/categories.json";
 
 const ItemModal = ({ visible, onClose, item }: any) => {
   const [quantity, setQuantity] = useState(1);
-
-  const [addOns, setAddOns] = useState<any[]>(extras.products[6].items);
 
   return (
     <Modal
@@ -25,33 +22,33 @@ const ItemModal = ({ visible, onClose, item }: any) => {
     >
       <View className="flex-1 bg-black/80">
         <View className="flex-1 mt-20 bg-[#171717] rounded-t-3xl">
-          <View className="border border-b-0 border-t-2 border-white">
-            <Text>msdj</Text>
-          </View>
+          
 
-          <ScrollView className="flex-1">
+          <SafeAreaView className="flex-1">
+
             {/* Header */}
             <View className="p-5">
               <View className="flex-row mt-20 justify-between items-start">
-                <Text className="text-white text-4xl font-bold flex-1">
+                <Text className="text-white text-3xl font-bold flex-1">
                   {item?.name}
                 </Text>
-                <Text className="text-white text-2xl font-bold">
+                <Text className="text-white text-2xl font-bold ">
                   Rs.{item?.price}
                 </Text>
               </View>
               <Text className="text-white mt-5 mb-5 text-base">
-                {item?.description}
+                "{item?.description}"
               </Text>
             </View>
 
-            {/* Options Sections */}
+          {/* Accordion */}
+          
             <View>
-              <CustomAccordion extra={addOns} currentItem={item}/>
-              
+              <CustomAccordion currentItem={item}/>
             </View>
-            {/* Add Ons Section */}
-          </ScrollView>
+            
+          {/* SafeAreaView replaced scrollView as flat list performs scrolling too */}
+          </SafeAreaView>
 
           {/* Bottom Bar */}
           <View className="p-4 mb-10 flex-row items-center justify-between bg-[#171717] border-t border-gray-800">
@@ -72,12 +69,14 @@ const ItemModal = ({ visible, onClose, item }: any) => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
+              onPressOut={()=>setQuantity(1)}
               onPress={onClose}
               className="bg-[#F4BA45] px-3 py-3 rounded-full"
             >
               <Text className="text-black font-bold text-lg">Add to Cart</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPressOut={()=>setQuantity(1)}
               onPress={onClose}
               className="bg-[#F4BA45] px-4 py-3 rounded-full"
             >
