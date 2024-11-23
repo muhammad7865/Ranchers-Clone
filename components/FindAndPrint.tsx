@@ -7,70 +7,7 @@ const FindAndPrint = ({ items }: any) => {
   const [checked, setChecked] = useState("unchecked");
 
   switch (findCategory(items)) {
-    case "Pizza":
-      return (
-        <View
-          style={{
-            borderWidth: 1,
-            marginTop: 13,
-            marginBottom: 19,
-            borderColor: "#F4BA45",
-            padding: 10,
-            justifyContent: "space-between",
-          }}
-        >
-          <View>
-            <View className="flex-row justify-between">
-              <View className="flex-row">
-                <RadioButton
-                  value="first"
-                  status={checked === "first" ? "checked" : "unchecked"}
-                  onPress={() => setChecked("first")}
-                />
-                <Text className="text-white  pt-2">{items.name} SMALL</Text>
-              </View>
 
-              <View>
-                <Text className="text-white pt-2">{items.prices.small}</Text>
-              </View>
-            </View>
-          </View>
-
-          <View>
-            <View className="flex-row justify-between">
-              <View className="flex-row">
-                <RadioButton
-                  value="first"
-                  status={checked === "first" ? "checked" : "unchecked"}
-                  onPress={() => setChecked("first")}
-                />
-                <Text className="text-white  ">{items.name} MEDIUM</Text>
-              </View>
-
-              <View>
-                <Text className="text-white  ">{items.prices.medium}</Text>
-              </View>
-            </View>
-          </View>
-
-          <View>
-            <View className="flex-row justify-between">
-              <View className="flex-row">
-                <RadioButton
-                  value="first"
-                  status={checked === "first" ? "checked" : "unchecked"}
-                  onPress={() => setChecked("first")}
-                />
-                <Text className="text-white  ">{items.name} LARGE</Text>
-              </View>
-
-              <View>
-                <Text className="text-white  ">{items.prices.large}</Text>
-              </View>
-            </View>
-          </View>
-        </View>
-      );
     case "Deals":
       return (
         <View
@@ -80,10 +17,14 @@ const FindAndPrint = ({ items }: any) => {
             marginBottom: 19,
             borderColor: "#F4BA45",
             padding: 10,
+            flexDirection: "row",
+            justifyContent: "space-between",
           }}
         >
-          <Text className="text-white">{items.name}</Text>
-          <Text className="text-white">Price: {items.price}</Text>
+          <View className="flex flex-row justify-between">
+            <Text className="text-white">{items.name}</Text>
+            <Text className="text-white"> {items.price}</Text>
+          </View>
         </View>
       );
 
@@ -99,13 +40,107 @@ const FindAndPrint = ({ items }: any) => {
             padding: 10,
           }}
         >
-          <Text className="text-white">{items.name}</Text>
-          <Text className="text-white">Price: {items.price}</Text>
+          <View>
+            <View className="flex-row justify-between">
+              <View className="flex-row items-center">
+                <RadioButton
+                  value="first"
+                  status={checked === "first" ? "checked" : "unchecked"}
+                  onPress={() => setChecked("first")}
+                />
+                <Text className="text-white  ">{items.name}</Text>
+              </View>
+
+              <View className="items-center flex-row">
+                <Text className="text-white  ">{items.price}</Text>
+              </View>
+            </View>
+          </View>
           {items.isCombo && (
-            <Text className="text-white">Combo Price: {items.comboPrice}</Text>
+            <View>
+              <View className="flex-row justify-between">
+                <View className="flex-row items-center">
+                  <RadioButton
+                    value="first"
+                    status={checked === "first" ? "checked" : "unchecked"}
+                    onPress={() => setChecked("first")}
+                  />
+                  <Text className="text-white  ">COMBO {items.name}</Text>
+                </View>
+
+                <View className="items-center flex-row">
+                  <Text className="text-white  ">{items.comboPrice}</Text>
+                </View>
+              </View>
+            </View>
           )}
         </View>
       );
+    
+      case "Pizza":
+        return (
+          <View
+            style={{
+              borderWidth: 1,
+              marginTop: 13,
+              marginBottom: 19,
+              borderColor: "#F4BA45",
+              padding: 10,
+              justifyContent: "space-between",
+            }}
+          >
+            <View>
+              <View className="flex-row justify-between">
+                <View className="flex-row ">
+                  <RadioButton
+                    value="first"
+                    status={checked === "first" ? "checked" : "unchecked"}
+                    onPress={() => setChecked("first")}
+                  />
+                  <Text className="text-white  pt-2">{items.name} SMALL</Text>
+                </View>
+  
+                <View>
+                  <Text className="text-white pt-2">{items.prices.small}</Text>
+                </View>
+              </View>
+            </View>
+  
+            <View>
+              <View className="flex-row justify-between">
+                <View className="flex-row">
+                  <RadioButton
+                    value="first"
+                    status={checked === "first" ? "checked" : "unchecked"}
+                    onPress={() => setChecked("first")}
+                  />
+                  <Text className="text-white  ">{items.name} MEDIUM</Text>
+                </View>
+  
+                <View>
+                  <Text className="text-white  ">{items.prices.medium}</Text>
+                </View>
+              </View>
+            </View>
+  
+            <View>
+              <View className="flex-row justify-between">
+                <View className="flex-row">
+                  <RadioButton
+                    value="first"
+                    status={checked === "first" ? "checked" : "unchecked"}
+                    onPress={() => setChecked("first")}
+                  />
+                  <Text className="text-white  ">{items.name} MEDIUM</Text>
+                </View>
+  
+                <View>
+                  <Text className="text-white  ">{items.prices.medium}</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        );
 
     case "Fries":
       if (items.prices) {
@@ -119,23 +154,60 @@ const FindAndPrint = ({ items }: any) => {
               padding: 10,
             }}
           >
-            <Text className="text-white">{items.name}</Text>
             {items.prices.small && (
-              <View className="flex-row justify-between">
-                <Text className="text-white">Small</Text>
-                <Text className="text-white">{items.prices.small}</Text>
+              <View>
+                <View className="flex-row justify-between">
+                  <View className="flex-row ">
+                    <RadioButton
+                      value="first"
+                      status={checked === "first" ? "checked" : "unchecked"}
+                      onPress={() => setChecked("first")}
+                    />
+                    <Text className="text-white  pt-2">{items.name} SMALL</Text>
+                  </View>
+
+                  <View>
+                    <Text className="text-white pt-2">
+                      {items.prices.small}
+                    </Text>
+                  </View>
+                </View>
               </View>
             )}
             {items.prices.medium && (
-              <View className="flex-row justify-between">
-                <Text className="text-white">Medium</Text>
-                <Text className="text-white">{items.prices.medium}</Text>
+              <View>
+                <View className="flex-row justify-between">
+                  <View className="flex-row">
+                    <RadioButton
+                      value="first"
+                      status={checked === "first" ? "checked" : "unchecked"}
+                      onPress={() => setChecked("first")}
+                    />
+                    <Text className="text-white  ">{items.name} MEDIUM</Text>
+                  </View>
+
+                  <View>
+                    <Text className="text-white  ">{items.prices.medium}</Text>
+                  </View>
+                </View>
               </View>
             )}
             {items.prices.large && (
-              <View className="flex-row justify-between">
-                <Text className="text-white">Large</Text>
-                <Text className="text-white">{items.prices.large}</Text>
+              <View>
+                <View className="flex-row justify-between">
+                  <View className="flex-row">
+                    <RadioButton
+                      value="first"
+                      status={checked === "first" ? "checked" : "unchecked"}
+                      onPress={() => setChecked("first")}
+                    />
+                    <Text className="text-white  ">{items.name} MEDIUM</Text>
+                  </View>
+
+                  <View>
+                    <Text className="text-white  ">{items.prices.medium}</Text>
+                  </View>
+                </View>
               </View>
             )}
           </View>
@@ -151,8 +223,10 @@ const FindAndPrint = ({ items }: any) => {
               padding: 10,
             }}
           >
-            <Text className="text-white">{items.name}</Text>
-            <Text className="text-white">Price: {items.price}</Text>
+            <View className="flex flex-row justify-between">
+              <Text className="text-white">{items.name}</Text>
+              <Text className="text-white"> {items.price}</Text>
+            </View>
           </View>
         );
       }
@@ -169,17 +243,40 @@ const FindAndPrint = ({ items }: any) => {
               padding: 10,
             }}
           >
-            <Text className="text-white">{items.name}</Text>
             {items.prices["1pc"] && (
-              <View className="flex-row justify-between">
-                <Text className="text-white">1 Piece</Text>
-                <Text className="text-white">{items.prices["1pc"]}</Text>
+              <View>
+                <View className="flex-row justify-between">
+                  <View className="flex-row ">
+                    <RadioButton
+                      value="first"
+                      status={checked === "first" ? "checked" : "unchecked"}
+                      onPress={() => setChecked("first")}
+                    />
+                    <Text className="text-white  pt-2">1 {items.name}</Text>
+                  </View>
+
+                  <View>
+                    <Text className="text-white">{items.prices["1pc"]}</Text>
+                  </View>
+                </View>
               </View>
             )}
             {items.prices["3pc"] && (
-              <View className="flex-row justify-between">
-                <Text className="text-white">3 Pieces</Text>
-                <Text className="text-white">{items.prices["3pc"]}</Text>
+              <View>
+                <View className="flex-row justify-between">
+                  <View className="flex-row ">
+                    <RadioButton
+                      value="first"
+                      status={checked === "first" ? "checked" : "unchecked"}
+                      onPress={() => setChecked("first")}
+                    />
+                    <Text className="text-white  pt-2">3 {items.name}</Text>
+                  </View>
+
+                  <View>
+                    <Text className="text-white">{items.prices["3pc"]}</Text>
+                  </View>
+                </View>
               </View>
             )}
           </View>
@@ -195,8 +292,10 @@ const FindAndPrint = ({ items }: any) => {
               padding: 10,
             }}
           >
-            <Text className="text-white">{items.name}</Text>
-            <Text className="text-white">Price: {items.price}</Text>
+            <View className="flex flex-row justify-between">
+              <Text className="text-white">{items.name}</Text>
+              <Text className="text-white"> {items.price}</Text>
+            </View>
           </View>
         );
       }
@@ -212,8 +311,10 @@ const FindAndPrint = ({ items }: any) => {
             padding: 10,
           }}
         >
-          <Text className="text-white">{items.name}</Text>
-          <Text className="text-white">Price: {items.price}</Text>
+          <View className="flex flex-row justify-between">
+            <Text className="text-white">{items.name}</Text>
+            <Text className="text-white"> {items.price}</Text>
+          </View>
         </View>
       );
 

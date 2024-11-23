@@ -18,6 +18,7 @@
         {/* Signup Screen */}
         <Stack.Screen
           name="signup"
+          
           options={{
             presentation: "modal", // Modal-like presentation
             headerShown: false, // Explicitly hide header for this screen

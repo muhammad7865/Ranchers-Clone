@@ -5,17 +5,13 @@ import { ChevronUp, ChevronDown } from "react-native-feather";
 import extras from "@/categories.json";
 import FindAndPrint from "./FindAndPrint";
 
-
-
-
-const CustomAccordion = ({currentItem }: any) => {
-  
-  
+const CustomAccordion = ({ currentItem }: any) => {
   const [isAddonOpen, setIsAddonOpen] = useState(false);
   const [isSelectedOpen, setisSelectedOpen] = useState(false);
   const [checked, setChecked] = useState("unchecked");
-  const [addOns, setAddOns] = useState<any[]>(extras.products[6].items);
-
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [addOns] = useState<any[]>(extras.products[6].items);
+  
 
   const toggleAccordionitem = () => {
     setisSelectedOpen(!isSelectedOpen);
@@ -23,10 +19,19 @@ const CustomAccordion = ({currentItem }: any) => {
   const toggleAccordionaddOn = () => {
     setIsAddonOpen(!isAddonOpen);
   };
+  const handleSelectItem = (item) => {
+    const exists = selectedItems.find((selected) => selected.name === item.name);
+    if (exists) {
+      // If item is already selected, remove it
+      setSelectedItems(selectedItems.filter((selected) => selected.name !== item.name));
+    } else {
+      // If item is not selected, add it
+      setSelectedItems([...selectedItems, item]);
+    }
+  };
 
   return (
     <View>
-
       {/* Item selected View  */}
 
       <View>
@@ -49,13 +54,12 @@ const CustomAccordion = ({currentItem }: any) => {
         </View>
         {isSelectedOpen && (
           <View>
-             <FindAndPrint items={currentItem} />
+            <FindAndPrint items={currentItem} />
           </View>
         )}
       </View>
 
       {/* Addon View */}
-
       <View className="mt-4 ">
         <View
           className="border-2 flex flex-row justify-between p-2"
@@ -88,15 +92,16 @@ const CustomAccordion = ({currentItem }: any) => {
               renderItem={({ item }) => (
                 <View className="flex flex-row">
                   <View>
-                    <RadioButton
-                      value="first"
-                      status={checked === "first" ? "checked" : "unchecked"}
-                      onPress={() => setChecked("first")}
-                    />
+                  <RadioButton
+                  value={item.name}
+                  status={selectedItem === item.name ? "checked" : "unchecked"}
+                  onPress={() => handleSelectItem(item)}
+                />
+
                   </View>
-                  <View className="flex flex-row justify-between items-center ">
+                  <View className="flex flex-row justify-between">
                     <Text className="text-white">{item.name}</Text>
-                    <Text className="text-white">{item.price}</Text>
+                    <Text className="text-white"> {item.price}</Text>
                   </View>
                 </View>
               )}
@@ -109,4 +114,3 @@ const CustomAccordion = ({currentItem }: any) => {
 };
 
 export default CustomAccordion;
-
