@@ -11,21 +11,23 @@ const FindAndPrint = ({ items }: any) => {
       return (
         <View
           style={{
-            borderWidth: 1,
+            borderWidth: 2,
             marginTop: 13,
             marginBottom: 19,
             borderColor: "#F4BA45",
             padding: 10,
             justifyContent: "space-between",
+            borderRadius:10
           }}
         >
           <View>
-            <View className="flex-row justify-between">
-              <View className="flex-row">
+            <View className="flex-row justify-between items-center ">
+              <View className="flex-row items-center">
                 <RadioButton
                   value="first"
                   status={checked === "first" ? "checked" : "unchecked"}
                   onPress={() => setChecked("first")}
+
                 />
                 <Text className="text-white  pt-2">{items.name} SMALL</Text>
               </View>
@@ -37,8 +39,8 @@ const FindAndPrint = ({ items }: any) => {
           </View>
 
           <View>
-            <View className="flex-row justify-between">
-              <View className="flex-row">
+            <View className="flex-row justify-between items-center">
+              <View className="flex-row items-center">
                 <RadioButton
                   value="first"
                   status={checked === "first" ? "checked" : "unchecked"}
@@ -54,8 +56,8 @@ const FindAndPrint = ({ items }: any) => {
           </View>
 
           <View>
-            <View className="flex-row justify-between">
-              <View className="flex-row">
+            <View className="flex-row justify-between items-center">
+              <View className="flex-row items-center">
                 <RadioButton
                   value="first"
                   status={checked === "first" ? "checked" : "unchecked"}
@@ -75,11 +77,12 @@ const FindAndPrint = ({ items }: any) => {
       return (
         <View
           style={{
-            borderWidth: 1,
+            borderWidth: 2,
             marginTop: 13,
             marginBottom: 19,
             borderColor: "#F4BA45",
             padding: 10,
+            borderRadius:10
           }}
         >
           <Text className="text-white">{items.name}</Text>
@@ -97,6 +100,7 @@ const FindAndPrint = ({ items }: any) => {
             marginBottom: 19,
             borderColor: "#F4BA45",
             padding: 10,
+            borderRadius:10
           }}
         >
           <Text className="text-white">{items.name}</Text>
@@ -112,18 +116,19 @@ const FindAndPrint = ({ items }: any) => {
         return (
           <View
             style={{
-              borderWidth: 1,
+              borderWidth: 2,
               marginTop: 13,
               marginBottom: 19,
               borderColor: "#F4BA45",
               padding: 10,
+              borderRadius:10
             }}
           >
             <Text className="text-white">{items.name}</Text>
             {items.prices.small && (
               <View className="flex-row justify-between">
-                <Text className="text-white">Small</Text>
-                <Text className="text-white">{items.prices.small}</Text>
+                <Text className="text-white" style={{paddingVertical:20}}>Small</Text>
+                <Text className="text-white"  style={{paddingVertical:20}}>{items.prices.small}</Text>
               </View>
             )}
             {items.prices.medium && (
@@ -149,6 +154,7 @@ const FindAndPrint = ({ items }: any) => {
               marginBottom: 19,
               borderColor: "#F4BA45",
               padding: 10,
+              borderRadius:10
             }}
           >
             <Text className="text-white">{items.name}</Text>
@@ -162,11 +168,14 @@ const FindAndPrint = ({ items }: any) => {
         return (
           <View
             style={{
-              borderWidth: 1,
+              borderWidth: 2,
               marginTop: 13,
               marginBottom: 19,
               borderColor: "#F4BA45",
               padding: 10,
+              borderRadius:10,
+              display:"flex",
+              flexDirection:"row"
             }}
           >
             <Text className="text-white">{items.name}</Text>
@@ -193,6 +202,7 @@ const FindAndPrint = ({ items }: any) => {
               marginBottom: 19,
               borderColor: "#F4BA45",
               padding: 10,
+              borderRadius:10
             }}
           >
             <Text className="text-white">{items.name}</Text>
@@ -210,6 +220,7 @@ const FindAndPrint = ({ items }: any) => {
             marginBottom: 19,
             borderColor: "#F4BA45",
             padding: 10,
+            borderRadius:10
           }}
         >
           <Text className="text-white">{items.name}</Text>
