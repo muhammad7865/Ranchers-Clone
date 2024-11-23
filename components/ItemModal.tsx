@@ -20,7 +20,7 @@ const ItemModal = ({ visible, onClose, item }: any) => {
       transparent={true}
       onRequestClose={onClose}
     >
-      <View className="flex-1 bg-black/80">
+      <View className="flex-1 bg-black/80 ">
         <View className="flex-1 mt-20 bg-[#171717] rounded-t-3xl">
           
 
@@ -28,15 +28,15 @@ const ItemModal = ({ visible, onClose, item }: any) => {
 
             {/* Header */}
             <View className="p-5">
-              <View className="flex-row mt-20 justify-between items-start">
-                <Text className="text-white text-3xl font-bold flex-1">
+              <View className="flex-row mt-20 justify-between items-start mr-5 pr-5" >
+                <Text className="text-white text-3xl font-bold flex-1 pl-5">
                   {item?.name}
                 </Text>
-                <Text className="text-white text-2xl font-bold ">
-                  Rs.{item?.price}
+                <Text className="text-white text-2xl font-bold  " style={{marginRight:20}} >
+                  Rs.{item?.price}     
                 </Text>
               </View>
-              <Text className="text-white mt-5 mb-5 text-base">
+              <Text className="text-white mt-5 mb-5 text-base pl-5">
                 "{item?.description}"
               </Text>
             </View>
