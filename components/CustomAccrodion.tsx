@@ -5,11 +5,10 @@ import { ChevronUp, ChevronDown } from "react-native-feather";
 import extras from "@/categories.json";
 import FindAndPrint from "./FindAndPrint";
 
-const CustomAccordion = ({ currentItem }: any) => {
+const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) => {
   const [isAddonOpen, setIsAddonOpen] = useState(false);
   const [isSelectedOpen, setisSelectedOpen] = useState(false);
   const [checked, setChecked] = useState("unchecked");
-  const [selectedItem, setSelectedItem] = useState(null);
   const [addOns] = useState<any[]>(extras.products[6].items);
   
 
@@ -19,16 +18,7 @@ const CustomAccordion = ({ currentItem }: any) => {
   const toggleAccordionaddOn = () => {
     setIsAddonOpen(!isAddonOpen);
   };
-  const handleSelectItem = (item) => {
-    const exists = selectedItems.find((selected) => selected.name === item.name);
-    if (exists) {
-      // If item is already selected, remove it
-      setSelectedItems(selectedItems.filter((selected) => selected.name !== item.name));
-    } else {
-      // If item is not selected, add it
-      setSelectedItems([...selectedItems, item]);
-    }
-  };
+
 
   return (
     <View>
@@ -54,7 +44,9 @@ const CustomAccordion = ({ currentItem }: any) => {
         </View>
         {isSelectedOpen && (
           <View>
-            <FindAndPrint items={currentItem} />
+            <FindAndPrint items={currentItem}
+             handleSelection={handleSelection} 
+             selectedItems={selectedItems}/>
           </View>
         )}
       </View>
@@ -87,25 +79,29 @@ const CustomAccordion = ({ currentItem }: any) => {
               borderColor: "#F4BA45",
             }}
           >
-            <FlatList
-              data={addOns}
-              renderItem={({ item }) => (
-                <View className="flex flex-row">
-                  <View>
-                  <RadioButton
-                  value={item.name}
-                  status={selectedItem === item.name ? "checked" : "unchecked"}
-                  onPress={() => handleSelectItem(item)}
-                />
-
-                  </View>
-                  <View className="flex flex-row justify-between">
-                    <Text className="text-white">{item.name}</Text>
-                    <Text className="text-white"> {item.price}</Text>
-                  </View>
-                </View>
-              )}
+           <FlatList
+      data={addOns}
+      renderItem={({ item }) => (
+        <View className="flex flex-row items-center">
+          <View>
+            <RadioButton
+              value={item.name}
+              status={
+                selectedItems.some((selected:any) => selected.name === item.name)
+                  ? "checked"
+                  : "unchecked"
+              }
+              onPress={() => handleSelection(item)}
             />
+          </View>
+          <View className="flex-1 flex-row justify-between items-center">
+            <Text className="text-white">{item.name}</Text>
+            <Text className="text-white">{item.price}</Text>
+          </View>
+        </View>
+      )}
+      keyExtractor={(item) => item.name}
+    />
           </View>
         )}
       </View>

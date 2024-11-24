@@ -1,18 +1,24 @@
-import React from "react";
-import { View, Text, TouchableOpacity,Image } from "react-native";
-import { useRouter } from "expo-router";
-import data from '@/categories.json'
+import React, { useEffect, useState } from "react";
+import { FlatList, Text, View } from "react-native";
 
-export default function CartScreen() {
-  const router = useRouter();
+export default function Cart({ items }: any) {
+
+
 
   return (
-    <View className="bg-[#171717] h-screen " >
-    <View className="mt-20 flex flex-row items-center pl-" >  
-      <Text className="color-white text-4xl font-extrabold pl-2" >
-        YOUR CART 
-      </Text>
-    </View>
+    <View className="bg-[#ab2f2f] h-screen ">
+      <View className="mt-20 flex flex-row items-center pl-">
+        <Text className="color-white text-4xl font-extrabold pl-2">CART</Text>
+        <FlatList
+          data={items}
+          renderItem={({ item }) => (
+            <View style={{ marginBottom: 10 }}>
+              <Text>{item.name}</Text>
+              <Text>{item.price}</Text>
+            </View>
+          )}
+        />
+      </View>
     </View>
   );
 }

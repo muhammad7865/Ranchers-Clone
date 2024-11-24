@@ -1,17 +1,48 @@
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
+  FlatList,
   Modal,
   SafeAreaView,
   Text,
   TouchableOpacity,
   View,
-  FlatList,
 } from "react-native";
 import { Minus, Plus } from "react-native-feather";
-import CustomAccordion from './CustomAccrodion';
+import CustomAccordion from "./CustomAccrodion";
+import Cart from "@/app/cart";
+import MenuItem from './ItemMenu';
 
 const ItemModal = ({ visible, onClose, item }: any) => {
   const [quantity, setQuantity] = useState(1);
+  const [selectedItems, setSelectedItems] = useState<any[]>([]);
+
+  const handleSelection = (newItem: any) => {
+    setSelectedItems((prev) => {
+      const existingItemIndex = prev.findIndex(
+        (item) => item.name === newItem.name
+      );
+
+      if (existingItemIndex >= 0) {
+        // If the item exists, remove it from the list
+        return prev.filter((_, index) => index !== existingItemIndex);
+      } else {
+        // If the item does not exist, add it to the list
+        return [...prev, newItem];
+      }
+    });
+  };
+
+  const handleAddToCart = () => {
+    <Cart item={selectedItems}/>
+    //clear the cart
+    setSelectedItems([])
+  
+    // router.push({
+    //   pathname: "/cart", 
+    //   params: { items: selectedItems },
+    // });
+  };
 
   return (
     <Modal
@@ -22,18 +53,18 @@ const ItemModal = ({ visible, onClose, item }: any) => {
     >
       <View className="flex-1 bg-black/80 ">
         <View className="flex-1 mt-20 bg-[#171717] rounded-t-3xl">
-          
-
           <SafeAreaView className="flex-1">
-
             {/* Header */}
             <View className="p-5">
-              <View className="flex-row mt-20 justify-between items-start mr-5 pr-5" >
+              <View className="flex-row mt-20 justify-between items-start mr-5 pr-5">
                 <Text className="text-white text-3xl font-bold flex-1 pl-5">
                   {item?.name}
                 </Text>
-                <Text className="text-white text-2xl font-bold  " style={{marginRight:20}} >
-                  Rs.{item?.price}     
+                <Text
+                  className="text-white text-2xl font-bold  "
+                  style={{ marginRight: 20 }}
+                >
+                  Rs.{item?.price}
                 </Text>
               </View>
               <Text className="text-white mt-5 mb-5 text-base pl-5">
@@ -41,13 +72,26 @@ const ItemModal = ({ visible, onClose, item }: any) => {
               </Text>
             </View>
 
-          {/* Accordion */}
-          
+            {/* Accordion with seletion function*/}
+
             <View>
-              <CustomAccordion currentItem={item}/>
+              <CustomAccordion
+                currentItem={item}
+                handleSelection={handleSelection}
+                selectedItems={selectedItems}
+              />
             </View>
-            
-          {/* SafeAreaView replaced scrollView as flat list performs scrolling too */}
+
+            <FlatList
+              data={selectedItems}
+              renderItem={({ item }) => (
+                <View>
+                  <Text className="color-white">{item.name}</Text>
+                </View>
+              )}
+            />
+
+            {/* SafeAreaView replaced scrollView as flat list performs scrolling too */}
           </SafeAreaView>
 
           {/* Bottom Bar */}
@@ -69,14 +113,28 @@ const ItemModal = ({ visible, onClose, item }: any) => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
-              onPressOut={()=>setQuantity(1)}
+              onPressOut={() => {
+                {
+                  setQuantity(1);
+                }
+                {
+                  handleAddToCart();
+                }
+              }}
               onPress={onClose}
               className="bg-[#F4BA45] px-3 py-3 rounded-full"
             >
               <Text className="text-black font-bold text-lg">Add to Cart</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPressOut={()=>setQuantity(1)}
+              onPressOut={() => {
+                {
+                  setSelectedItems([]);
+                }
+                {
+                  setQuantity(1);
+                }
+              }}
               onPress={onClose}
               className="bg-[#F4BA45] px-4 py-3 rounded-full"
             >
