@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View, FlatList } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { ChevronUp, ChevronDown } from "react-native-feather";
 import extras from "@/categories.json";
-import FindAndPrint from "./FindAndPrint";
+import DetailsAccordion from "./DetailsAccordion";
 
 const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) => {
   const [isAddonOpen, setIsAddonOpen] = useState(false);
@@ -44,7 +44,7 @@ const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) =>
         </View>
         {isSelectedOpen && (
           <View>
-            <FindAndPrint items={currentItem}
+            <DetailsAccordion items={currentItem}
              handleSelection={handleSelection} 
              selectedItems={selectedItems}/>
           </View>
@@ -77,14 +77,17 @@ const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) =>
               marginTop: 13,
               marginBottom: 19,
               borderColor: "#F4BA45",
+            
             }}
           >
            <FlatList
       data={addOns}
       renderItem={({ item }) => (
-        <View className="flex flex-row items-center">
+        <View className="flex flex-row items-center ">
           <View>
             <RadioButton
+              color="#F4BA45"
+              uncheckedColor="#F4BA45"
               value={item.name}
               status={
                 selectedItems.some((selected:any) => selected.name === item.name)

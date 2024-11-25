@@ -1,0 +1,148 @@
+{
+    "cities": [
+      {
+        "id": "all",
+        "name": "All"
+      },
+      {
+        "id": "rawalpindi",
+        "name": "Rawalpindi",
+        "branches": [
+          {
+            "name": "Pwd Ranchers Branch",
+            "address": "Ground Floor, Hafiz Plaza, Main Pwd Rd, Block-A Block A Police Foundation, Rawalpindi, Punjab 46000",
+            "phone": ["05111157677"]
+          },
+          {
+            "name": "Saddar Ranchers Branch",
+            "address": "Bank Road, Saddar, Near Mall Road, Rawalpindi",
+            "phone": ["05111157688"]
+          }
+        ]
+      },
+      {
+        "id": "faisalabad",
+        "name": "Faisalabad",
+        "branches": [
+          {
+            "name": "Ranchers Faisalabad Main",
+            "address": "D Ground, Near Clock Tower, Faisalabad",
+            "phone": ["05111157678"]
+          },
+          {
+            "name": "Ranchers Faisalabad Canal",
+            "address": "Canal Road, Near State Bank, Faisalabad",
+            "phone": ["05111157689"]
+          }
+        ]
+      },
+      {
+        "id": "lahore",
+        "name": "Lahore",
+        "branches": [
+          {
+            "name": "Ranchers Gulberg",
+            "address": "MM Alam Road, Gulberg III, Lahore",
+            "phone": ["05111157679"]
+          },
+          {
+            "name": "Ranchers Johar Town",
+            "address": "Johar Town G-1 Market, Lahore",
+            "phone": ["05111157690"]
+          },
+          {
+            "name": "Ranchers DHA",
+            "address": "Y Block, DHA Phase 3, Lahore",
+            "phone": ["05111157691"]
+          }
+        ]
+      },
+      {
+        "id": "peshawar",
+        "name": "Peshawar",
+        "branches": [
+          {
+            "name": "Ranchers Peshawar Main",
+            "address": "Ranchers Opposite To Hbk Arena Ring, Road Peshawar",
+            "phone": ["51111577677", "51111577677"]
+          },
+          {
+            "name": "Ranchers University Town",
+            "address": "University Road, Near Board, Peshawar",
+            "phone": ["51111577678"]
+          }
+        ]
+      },
+      {
+        "id": "gujranwala",
+        "name": "Gujranwala",
+        "branches": [
+          {
+            "name": "Ranchers Gujranwala Main",
+            "address": "GT Road, Near Sheranwala Bagh, Gujranwala",
+            "phone": ["05111157680"]
+          },
+          {
+            "name": "Ranchers Model Town",
+            "address": "Model Town, Near Civil Hospital, Gujranwala",
+            "phone": ["05111157692"]
+          }
+        ]
+      },
+      {
+        "id": "sargodha",
+        "name": "Sargodha",
+        "branches": [
+          {
+            "name": "Ranchers Sargodha Main",
+            "address": "University Road, Near Cavalry Ground, Sargodha",
+            "phone": ["05111157681"]
+          },
+          {
+            "name": "Ranchers Queens Road",
+            "address": "Queens Road, Near Company Bagh, Sargodha",
+            "phone": ["05111157693"]
+          }
+        ]
+      },
+      {
+        "id": "sialkot",
+        "name": "Sialkot",
+        "branches": [
+          {
+            "name": "Ranchers Sialkot Main",
+            "address": "Paris Road, Near Clock Tower, Sialkot",
+            "phone": ["05111157682"]
+          },
+          {
+            "name": "Ranchers Cantt",
+            "address": "Cantt Area, Near CMH, Sialkot",
+            "phone": ["05111157694"]
+          }
+        ]
+      },
+      {
+        "id": "islamabad",
+        "name": "Islamabad",
+        "branches": [
+          {
+            "name": "Ranchers F-7",
+            "address": "F-7 Markaz, Jinnah Super Market, Islamabad",
+            "phone": ["05111157683"]
+          },
+          {
+            "name": "Ranchers F-10",
+            "address": "F-10 Markaz, Near Covered Market, Islamabad",
+            "phone": ["05111157695"]
+          },
+          {
+            "name": "Ranchers E-11",
+            "address": "E-11/3, Near MPCHS, Islamabad",
+            "phone": ["05111157696"]
+          }
+        ]
+      }
+    ]
+  }
+  
+  

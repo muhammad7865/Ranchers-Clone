@@ -23,7 +23,7 @@ export default function More() {
             router.push("/more/orderHistory");
           }
           else{
-              Alert.alert('Login First')
+              Alert.alert('Please login First ☺')
           }
           }}
         >
@@ -51,7 +51,7 @@ export default function More() {
               router.push("/more/profile");
             }
             else{
-                Alert.alert('Login First')
+                Alert.alert('Please login First ☺')
             }
           }}
         >
@@ -96,7 +96,7 @@ export default function More() {
               router.push("/more/feedback");
             }
             else{
-                Alert.alert('Login First')
+                Alert.alert('Please login First ☺')
             }
           }}
         >
@@ -121,7 +121,7 @@ export default function More() {
               router.push("/more/changepassword");
             }
             else{
-                Alert.alert('Login First')
+                Alert.alert('Please login First ☺')
             }
           }}
         >

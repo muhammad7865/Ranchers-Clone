@@ -1,23 +1,18 @@
-import { Link, router } from "expo-router";
-import * as React from "react";
 import Category from "@/components/Category";
 import Carousel from "@/components/Crousal";
+import { router } from "expo-router";
+import * as React from "react";
 import {
-  Text,
-  View,
-  TouchableOpacity,
   SafeAreaView,
   StatusBar,
-  Image,
+  Text,
+  TouchableOpacity,
+  View,
+  Image
 } from "react-native";
 import * as Icon from "react-native-feather";
 
-const slides = [
-  require("@/assets/images/deal1.jpeg"),
-  require("@/assets/images/deal2.jpeg"),
-  require("@/assets/images/deal3.jpeg"),
-  require("@/assets/images/deal4.jpeg"),
-];
+
 
 export default function HomeScreen() {
   return (
@@ -25,7 +20,7 @@ export default function HomeScreen() {
       <StatusBar barStyle="light-content" />
       
       {/* Header */}
-      <View className="flex-row items-center px-4 py-3">
+      <View className="flex-row justify-between items-center px-4 py-3">
         <TouchableOpacity
           onPress={() => router.push("/location")}
           className="p-1"
@@ -33,9 +28,11 @@ export default function HomeScreen() {
           <Icon.MapPin height={30} width={30} stroke="#F4BA45" />
         </TouchableOpacity>
 
-        <Text className="flex-1 text-[#F4BA45] font-extrabold text-2xl text-center">
-          RANCHERS CAFE
-        </Text>
+        <Image
+        
+        source={require("@/assets/images/logo.png")}
+        style={{height:65,width:70}}
+        />
 
         <TouchableOpacity
           onPress={() => router.push("/auth/login")}
@@ -56,16 +53,7 @@ export default function HomeScreen() {
       <View className="flex-1">
         {/* Carousel */}
         <View className="h-40">
-          <Carousel autoSlide={true}>
-            {slides.map((s, index) => (
-              <Image
-                key={index}
-                source={s}
-                className="flex"
-                resizeMode="cover"
-              />
-            ))}
-          </Carousel>
+          <Carousel />
         </View>
 
         {/* Menu Categories and Items */}

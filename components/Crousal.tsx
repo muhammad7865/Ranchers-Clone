@@ -4,18 +4,31 @@ import { ChevronLeft, ChevronRight } from "react-native-feather"
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const Carousel = ({ children: slides, autoSlide = true, autoSlideInterval = 3000 }:any) => {
-    const [curr, setCurr] = useState(0)
-    const scrollViewRef = useRef(null)
+interface SlideImage {
+  id: number;
+  imageUrl: string;
+}
 
-    const prev = () => {
-        const newIndex = curr === 0 ? slides.length - 1 : curr - 1
-        setCurr(newIndex)
-        scrollViewRef.current?.scrollTo({
-            x: newIndex * SCREEN_WIDTH,
-            animated: true
-        })
-    }
+interface CarouselProps {
+  autoSlide?: boolean;
+  autoSlideInterval?: number;
+}
+
+const slides: SlideImage[] = [
+  { id: 1, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/05/TRIOFEAST-1.webp" },
+  { id: 2, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/09/ANY2.webp" },
+  { id: 3, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/07/TWOFORYOU.webp" },
+  { id: 4, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/07/GRUBONTHEGO.webp" }
+ 
+]
+
+const Carousel: React.FC<CarouselProps> = ({ 
+  autoSlide = true, 
+  autoSlideInterval = 3000 
+}) => {
+    const [curr, setCurr] = useState(0)
+    const scrollViewRef = useRef<ScrollView>(null)
+
 
     const next = () => {
         const newIndex = curr === slides.length - 1 ? 0 : curr + 1
@@ -30,10 +43,10 @@ const Carousel = ({ children: slides, autoSlide = true, autoSlideInterval = 3000
         if (!autoSlide) return
         const slideInterval = setInterval(next, autoSlideInterval)
         return () => clearInterval(slideInterval)
-    }, [curr])
+    }, [curr, autoSlide, autoSlideInterval])
 
     return (
-        <View className="h-52 relative bg-[#171717]">
+        <View className="h-48 relative bg-[#171717]">
             <ScrollView
                 ref={scrollViewRef}
                 horizontal
@@ -46,44 +59,26 @@ const Carousel = ({ children: slides, autoSlide = true, autoSlideInterval = 3000
                     setCurr(slideNumber)
                 }}
             >
-                {React.Children.map(slides, (child, index) => (
-                    <View style={{ width: SCREEN_WIDTH }} key={index}>
-                        <View className="h-52 justify-center items-center">
-                            {child}
+                {slides.map((slide) => (
+                    <View 
+                        style={{ width: SCREEN_WIDTH }} 
+                        key={slide.id}
+                        className="px-4"
+                    >
+                        <View className="h-48 rounded-xl overflow-hidden">
+                            <Image
+                                source={{ uri: slide.imageUrl }}
+                                className="w-full h-full"
+                                resizeMode="cover"
+                            />
                         </View>
                     </View>
                 ))}
             </ScrollView>
             
-            <View className="absolute inset-0 flex-row items-center justify-between px-2 z-10">
-                <TouchableOpacity 
-                    onPress={prev} 
-                    className="w-8 h-8 rounded-full bg-black/30 items-center justify-center"
-                >
-                    <ChevronLeft stroke="white" width={24} height={24} />
-                </TouchableOpacity>
-                <TouchableOpacity 
-                    onPress={next} 
-                    className="w-8 h-8 rounded-full bg-black/30 items-center justify-center"
-                >
-                    <ChevronRight stroke="white" width={24} height={24} />
-                </TouchableOpacity>
-            </View>
-            
-            <View className="absolute bottom-2 right-0 left-0 z-10">
-                <View className="flex-row items-center justify-center gap-1">
-                    {slides.map((_: any, i: React.Key | null | undefined) => (
-                        <View
-                            key={i}
-                            className={`w-1.5 h-1.5 rounded-full bg-white ${
-                                curr === i ? "opacity-100" : "opacity-50"
-                            } mx-1`}
-                        />
-                    ))}
-                </View>
-            </View>
         </View>
     )
 }
 
 export default Carousel
+

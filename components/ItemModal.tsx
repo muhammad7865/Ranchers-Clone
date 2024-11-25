@@ -11,12 +11,11 @@ import {
 import { Minus, Plus } from "react-native-feather";
 import CustomAccordion from "./CustomAccrodion";
 import Cart from "@/app/cart";
-import MenuItem from './ItemMenu';
+import { useItemContext } from "@/hooks/ItemContext";
 
 const ItemModal = ({ visible, onClose, item }: any) => {
   const [quantity, setQuantity] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<any[]>([]);
-
+  const { selectedItems, setSelectedItems } = useItemContext();
   const handleSelection = (newItem: any) => {
     setSelectedItems((prev) => {
       const existingItemIndex = prev.findIndex(
@@ -33,16 +32,7 @@ const ItemModal = ({ visible, onClose, item }: any) => {
     });
   };
 
-  const handleAddToCart = () => {
-    <Cart item={selectedItems}/>
-    //clear the cart
-    setSelectedItems([])
-  
-    // router.push({
-    //   pathname: "/cart", 
-    //   params: { items: selectedItems },
-    // });
-  };
+
 
   return (
     <Modal
@@ -81,17 +71,7 @@ const ItemModal = ({ visible, onClose, item }: any) => {
                 selectedItems={selectedItems}
               />
             </View>
-
-            <FlatList
-              data={selectedItems}
-              renderItem={({ item }) => (
-                <View>
-                  <Text className="color-white">{item.name}</Text>
-                </View>
-              )}
-            />
-
-            {/* SafeAreaView replaced scrollView as flat list performs scrolling too */}
+            
           </SafeAreaView>
 
           {/* Bottom Bar */}
@@ -113,14 +93,7 @@ const ItemModal = ({ visible, onClose, item }: any) => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
-              onPressOut={() => {
-                {
-                  setQuantity(1);
-                }
-                {
-                  handleAddToCart();
-                }
-              }}
+              onPressOut={() => {  setQuantity(1) }}
               onPress={onClose}
               className="bg-[#F4BA45] px-3 py-3 rounded-full"
             >
@@ -128,9 +101,6 @@ const ItemModal = ({ visible, onClose, item }: any) => {
             </TouchableOpacity>
             <TouchableOpacity
               onPressOut={() => {
-                {
-                  setSelectedItems([]);
-                }
                 {
                   setQuantity(1);
                 }

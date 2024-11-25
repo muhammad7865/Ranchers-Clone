@@ -13,7 +13,7 @@ export default function Category() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleCategoryChange = (category: any) => {
+  const handleCategoryChange = (category:string) => {
     setSelectedCategory(category);
     const categoryData = menuData.products.find((p) => p.category === category);
     setMenuItems(categoryData ? categoryData.items : []);
