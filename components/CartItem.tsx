@@ -18,13 +18,14 @@ export default function CartItem({ item }: any) {
     updateItemQuantity();
   }, [quantity]);
 
-
   //to remove the item from selectedItem
   const removeSelected = (item: any) => {
-    const updatedItems = selectedItems.filter((cartItem) => cartItem.name !== item.name);
+    const updatedItems = selectedItems.filter(
+      (cartItem) => cartItem.name !== item.name
+    );
     setSelectedItems(updatedItems);
   };
-  
+
   return (
     <View className="mt-4">
       <View
@@ -45,28 +46,35 @@ export default function CartItem({ item }: any) {
           }}
         />
         <View className="flex">
-        <Text className="text-white ">{item.name}</Text>
-        <TouchableOpacity
-        onPress={()=>{
-            removeSelected(item)
-        }}>
-            <Text className="text-[#F4BA45]">Remove Item</Text>
-        </TouchableOpacity>
+          <Text className="text-white ">{item.name}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              removeSelected(item);
+            }}
+          >
+            <Text
+              className="text-[#F4BA45] pt-4 "
+            >
+              Remove Item
+            </Text>
+          </TouchableOpacity>
         </View>
 
         <View style={{ width: 75 }}>
           <View className="flex-row">
-            
-            <TouchableOpacity onPress={() => setQuantity((prev:any) => Math.max(1, prev - 1))}>
+            <TouchableOpacity
+              onPress={() => setQuantity((prev: any) => Math.max(1, prev - 1))}
+            >
               <Minus stroke="#F4BA45" width="20" height="20" />
             </TouchableOpacity>
 
             <Text className="mx-4 ml-2 text-white text-xl">{quantity}</Text>
 
-            <TouchableOpacity onPress={() => setQuantity((prev:any) => prev + 1)}>
+            <TouchableOpacity
+              onPress={() => setQuantity((prev: any) => prev + 1)}
+            >
               <Plus stroke="#F4BA45" width="35" />
             </TouchableOpacity>
-
           </View>
           <Text className="text-white font-bold pt-4 pl-4 ">
             {item.price} x {quantity} = {item.price * quantity}

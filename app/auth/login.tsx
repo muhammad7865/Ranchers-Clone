@@ -11,6 +11,7 @@ import {
   ScrollView,
 } from "react-native";
 import { router } from "expo-router";
+import * as Icon from "react-native-feather";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -34,13 +35,14 @@ export default function Login() {
       className="flex-1 bg-[#171717]"
       behavior={Platform.OS === "ios" ? "padding" : undefined}
     >
-        {/* Header Image */}
-        <Image
-          className="h-[35%] "
-          source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1SJueouF-GEdDFWjK9dJr5xJ_upHU7P6YHw&s"}}
-        />
+      {/* Header Image */}
+      <Image
+        className="h-[35%] "
+        source={{
+          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1SJueouF-GEdDFWjK9dJr5xJ_upHU7P6YHw&s",
+        }}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-
         {/* Login Section */}
         <View className="p-4">
           <Text className="text-white text-3xl text-center mt-10 ">
@@ -92,7 +94,13 @@ export default function Login() {
               Sign Up
             </Text>
           </Text>
+          {/* Social Media Login */}
         </View>
+          <View className="flex flex-row justify-center" >
+            <Icon.Twitter  stroke="skyblue" style={{marginRight:8}} />
+            <Icon.Instagram stroke="purple" style={{marginRight:8}}/>
+            <Icon.Github stroke="Green"/>
+          </View>
       </ScrollView>
     </KeyboardAvoidingView>
   );

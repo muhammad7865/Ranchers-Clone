@@ -1,21 +1,20 @@
-import { router } from "expo-router";
+import { useItemContext } from "@/hooks/ItemContext";
 import React, { useState } from "react";
 import {
-  FlatList,
   Modal,
   SafeAreaView,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { Minus, Plus } from "react-native-feather";
 import CustomAccordion from "./CustomAccrodion";
-import Cart from "@/app/cart";
-import { useItemContext } from "@/hooks/ItemContext";
 
 const ItemModal = ({ visible, onClose, item }: any) => {
   const [quantity, setQuantity] = useState(1);
   const { selectedItems, setSelectedItems } = useItemContext();
+
+  
   const handleSelection = (newItem: any) => {
     setSelectedItems((prev) => {
       const existingItemIndex = prev.findIndex(
@@ -31,8 +30,6 @@ const ItemModal = ({ visible, onClose, item }: any) => {
       }
     });
   };
-
-
 
   return (
     <Modal
@@ -76,30 +73,7 @@ const ItemModal = ({ visible, onClose, item }: any) => {
 
           {/* Bottom Bar */}
           <View className="p-4 mb-10 flex-row items-center justify-between bg-[#171717] border-t border-gray-800">
-            <View className="flex-row items-center">
-              <TouchableOpacity
-                onPress={() => setQuantity((prev) => Math.max(1, prev - 1))}
-                className="w-10 mr-2 h-10 rounded-full bg-[#F4BA45] items-center justify-center"
-              >
-                <Minus stroke="black" width="35" />
-              </TouchableOpacity>
-
-              <Text className="mx-4 text-white text-xl">{quantity}</Text>
-              <TouchableOpacity
-                onPress={() => setQuantity((prev) => prev + 1)}
-                className="w-10 ml-2 h-10 rounded-full bg-[#F4BA45] items-center justify-center"
-              >
-                <Plus stroke="black" width="35" />
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity
-              onPressOut={() => {  setQuantity(1) }}
-              onPress={onClose}
-              className="bg-[#F4BA45] px-3 py-3 rounded-full"
-            >
-              <Text className="text-black font-bold text-lg">Add to Cart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
+          <TouchableOpacity
               onPressOut={() => {
                 {
                   setQuantity(1);
@@ -110,6 +84,15 @@ const ItemModal = ({ visible, onClose, item }: any) => {
             >
               <Text className="text-black font-bold text-lg">Close</Text>
             </TouchableOpacity>
+            
+            <TouchableOpacity
+              onPressOut={() => {  setQuantity(1) }}
+              onPress={onClose}
+              className="bg-[#F4BA45] px-3 py-3 rounded-full"
+            >
+              <Text className="text-black font-bold text-lg">Add to Cart</Text>
+            </TouchableOpacity>
+            
           </View>
         </View>
       </View>

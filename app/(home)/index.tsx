@@ -53,7 +53,7 @@ export default function HomeScreen() {
       <View className="flex-1">
         {/* Carousel */}
         <View className="h-40">
-          <Carousel />
+          <Carousel/>
         </View>
 
         {/* Menu Categories and Items */}

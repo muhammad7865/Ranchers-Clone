@@ -19,7 +19,6 @@ const slides: SlideImage[] = [
   { id: 2, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/09/ANY2.webp" },
   { id: 3, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/07/TWOFORYOU.webp" },
   { id: 4, imageUrl: "https://rancherscafe.com/wp-content/uploads/2024/07/GRUBONTHEGO.webp" }
- 
 ]
 
 const Carousel: React.FC<CarouselProps> = ({ 
@@ -28,7 +27,6 @@ const Carousel: React.FC<CarouselProps> = ({
 }) => {
     const [curr, setCurr] = useState(0)
     const scrollViewRef = useRef<ScrollView>(null)
-
 
     const next = () => {
         const newIndex = curr === slides.length - 1 ? 0 : curr + 1
@@ -46,7 +44,7 @@ const Carousel: React.FC<CarouselProps> = ({
     }, [curr, autoSlide, autoSlideInterval])
 
     return (
-        <View className="h-48 relative bg-[#171717]">
+        <View style={{ height: 192, backgroundColor: '#171717' }}>
             <ScrollView
                 ref={scrollViewRef}
                 horizontal
@@ -61,24 +59,21 @@ const Carousel: React.FC<CarouselProps> = ({
             >
                 {slides.map((slide) => (
                     <View 
-                        style={{ width: SCREEN_WIDTH }} 
+                        style={{ width: SCREEN_WIDTH, paddingHorizontal: 16 }} 
                         key={slide.id}
-                        className="px-4"
                     >
-                        <View className="h-48 rounded-xl overflow-hidden">
+                        <View style={{ height: 192, borderRadius: 12, overflow: 'hidden' }}>
                             <Image
                                 source={{ uri: slide.imageUrl }}
-                                className="w-full h-full"
+                                style={{ width: '100%', height: '100%' }}
                                 resizeMode="cover"
                             />
                         </View>
                     </View>
                 ))}
             </ScrollView>
-            
         </View>
     )
 }
 
 export default Carousel
-

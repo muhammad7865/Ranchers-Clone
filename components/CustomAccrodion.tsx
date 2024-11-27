@@ -5,12 +5,15 @@ import { ChevronUp, ChevronDown } from "react-native-feather";
 import extras from "@/categories.json";
 import DetailsAccordion from "./DetailsAccordion";
 
-const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) => {
+const CustomAccordion = ({
+  currentItem,
+  handleSelection,
+  selectedItems,
+}: any) => {
   const [isAddonOpen, setIsAddonOpen] = useState(false);
   const [isSelectedOpen, setisSelectedOpen] = useState(false);
   const [checked, setChecked] = useState("unchecked");
   const [addOns] = useState<any[]>(extras.products[6].items);
-  
 
   const toggleAccordionitem = () => {
     setisSelectedOpen(!isSelectedOpen);
@@ -19,57 +22,62 @@ const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) =>
     setIsAddonOpen(!isAddonOpen);
   };
 
-
   return (
     <View>
       {/* Item selected View  */}
 
       <View>
-        <View
-          className="border-2 flex flex-row justify-between p-2"
-          style={{ borderColor: "#F4BA45" }}
-        >
-          <TouchableOpacity>
-            <Text className="text-white font-bold align-center pt-2">
-              OPTIONS
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={toggleAccordionitem}>
-            {isSelectedOpen ? (
-              <ChevronUp stroke="#F4BA45" width={23} />
-            ) : (
-              <ChevronDown stroke="#F4BA45" width={23} />
-            )}
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity onPress={() => toggleAccordionitem()} onPressIn={()=>setIsAddonOpen(false)}>
+          <View
+            className="border-2 flex flex-row justify-between p-2"
+            style={{ borderColor: "#F4BA45" }}
+          >
+            <TouchableOpacity>
+              <Text className="text-white font-bold align-center pt-2">
+                OPTIONS
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={toggleAccordionitem} onPressIn={()=>setIsAddonOpen(false)}>
+              {isSelectedOpen ? (
+                <ChevronUp stroke="#F4BA45" width={23} />
+              ) : (
+                <ChevronDown stroke="#F4BA45" width={23} />
+              )}
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
         {isSelectedOpen && (
           <View>
-            <DetailsAccordion items={currentItem}
-             handleSelection={handleSelection} 
-             selectedItems={selectedItems}/>
+            <DetailsAccordion
+              items={currentItem}
+              handleSelection={handleSelection}
+              selectedItems={selectedItems}
+            />
           </View>
         )}
       </View>
 
       {/* Addon View */}
+
       <View className="mt-4 ">
-        <View
-          className="border-2 flex flex-row justify-between p-2"
-          style={{ borderColor: "#F4BA45" }}
-        >
-          <TouchableOpacity>
+        <TouchableOpacity onPress={() => toggleAccordionaddOn()} onPressIn={()=>setisSelectedOpen(false)}>
+          <View
+            className="border-2 flex flex-row justify-between p-2"
+            style={{ borderColor: "#F4BA45" }}
+          >
             <Text className="text-white font-bold align-center pt-2">
               AddOn
             </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={toggleAccordionaddOn}>
-            {isAddonOpen ? (
-              <ChevronUp stroke="#F4BA45" width={23} />
-            ) : (
-              <ChevronDown stroke="#F4BA45" width={23} />
-            )}
-          </TouchableOpacity>
-        </View>
+
+            <TouchableOpacity onPress={toggleAccordionaddOn} onPressIn={()=>setisSelectedOpen(false)}>
+              {isAddonOpen ? (
+                <ChevronUp stroke="#F4BA45" width={23} />
+              ) : (
+                <ChevronDown stroke="#F4BA45" width={23} />
+              )}
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
         {isAddonOpen && (
           <View
             style={{
@@ -77,34 +85,37 @@ const CustomAccordion = ({ currentItem , handleSelection,selectedItems}: any) =>
               marginTop: 13,
               marginBottom: 19,
               borderColor: "#F4BA45",
-            
             }}
           >
-           <FlatList
-      data={addOns}
-      renderItem={({ item }) => (
-        <View className="flex flex-row items-center ">
-          <View>
-            <RadioButton
-              color="#F4BA45"
-              uncheckedColor="#F4BA45"
-              value={item.name}
-              status={
-                selectedItems.some((selected:any) => selected.name === item.name)
-                  ? "checked"
-                  : "unchecked"
-              }
-              onPress={() => handleSelection(item)}
+            <FlatList
+              data={addOns}
+              renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => handleSelection(item)}>
+                  <View className="flex flex-row items-center ">
+                    <View>
+                      <RadioButton
+                        color="#F4BA45"
+                        uncheckedColor="#F4BA45"
+                        value={item.name}
+                        status={
+                          selectedItems.some(
+                            (selected: any) => selected.name === item.name
+                          )
+                            ? "checked"
+                            : "unchecked"
+                        }
+                        onPress={() => handleSelection(item)}
+                      />
+                    </View>
+                    <View className="flex-1 flex-row justify-between items-center">
+                      <Text className="text-white">{item.name}</Text>
+                      <Text className="text-white">{item.price}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              )}
+              keyExtractor={(item) => item.name}
             />
-          </View>
-          <View className="flex-1 flex-row justify-between items-center">
-            <Text className="text-white">{item.name}</Text>
-            <Text className="text-white">{item.price}</Text>
-          </View>
-        </View>
-      )}
-      keyExtractor={(item) => item.name}
-    />
           </View>
         )}
       </View>

@@ -1,9 +1,7 @@
-import { View, Text, TouchableOpacity, Alert } from 'react-native';
-import React ,{useState} from "react";
 import { router } from "expo-router";
+import React, { useState } from "react";
+import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import * as Icon from "react-native-feather";
-import { Link, Stack } from "expo-router";
-import { Route } from "expo-router/build/Route";
 
 export default function More() {
   const[loggedin,setloggedin]=useState(false)
@@ -177,7 +175,7 @@ export default function More() {
         >
           <View className="pl-4 pt-6 flex flex-row items-center">
             <Icon.LogIn height={30} width={30} stroke="#F4BA45" />
-            <Text className="text-white text-[#F4BA45] pl-2">Login</Text>
+            <Text className="text-[#F4BA45] pl-2">Login</Text>
           </View>
         </TouchableOpacity>
       </View>
